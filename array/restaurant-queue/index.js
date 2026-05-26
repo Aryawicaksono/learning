@@ -2,10 +2,10 @@ const readline = require('readline-sync');
 
 /**
  * =========================================================================
- * 1. CONSTRUCTOR FUNCTION (CETAKAN OBJEK)
+ * 1. CONSTRUCTOR FUNCTION (OBJECT TEMPLATE)
  * =========================================================================
- * Digunakan untuk membuat objek pelanggan baru secara seragam.
- * Menghasilkan objek berbentuk: { name: 'NAMA', type: 'REGULAR'/'VIP' }
+ * Instantiates uniform customer profiles to keep data structures consistent.
+ * Generates an object blueprint: { name: 'STRING', type: 'REGULAR'/'VIP' }
  */
 function Person (name, type) {
     this.name = name;
@@ -14,85 +14,70 @@ function Person (name, type) {
 
 /**
  * =========================================================================
- * 2. HELPER FUNCTION (FUNGSI PEMBANTU)
+ * 2. HELPER FUNCTION (VALIDATION GATE)
  * =========================================================================
- * Bertugas memeriksa apakah array antrean kosong atau tidak.
- * Mengembalikan nilai Boolean (true/false) agar aman digunakan sebagai 
- * gerbang validasi di dalam switch-case utama.
+ * Evaluates whether the central queue array has elements.
+ * Returns a Boolean (true/false) to cleanly handle short-circuit flow 
+ * via 'continue' inside the switcher engine.
  */
 function isQueueBlank(array) {
     if (array.length === 0) {
-        console.log('Tidak ada antrean. Silakan pilih input yang lain.');
-        return true; // Menandakan antrean kosong
+        console.log('-> System Alert: Queue is empty. Please choose another action.');
+        return true; // Gates the feature, forcing a menu reset
     }
-    return false; // Menandakan antrean ada isinya
+    return false; // Queue contains data, safe to process downstream
 }
 
-// Database utama tempat menyimpan seluruh data antrean
+// Central database matrix storing active queue data (mixed layout format)
 let queue = [];
 
 /**
  * =========================================================================
- * 3. LOOP UTAMA TERMINAL (PIRINGAN LUAR)
+ * 3. MAIN APPLICATION ORBITAL LOOP (OUTER RING)
  * =========================================================================
- * Loop ini berjalan selamanya sampai user mengetik aksi 'EXIT'.
+ * Loops indefinitely until the 'isExit' flag state flips to true.
  */
 while (true) {
-    // Variabel penampung sementara yang di-reset setiap kali loop berputar kembali ke atas
+    // Isolated local runtime placeholders, reset on every cycle rotation
     let customer = '';
     let type = '';
     let action = '';
-    let isExit = false; // Sakelar penanda untuk memutus loop luar dari dalam switch-case
+    let isExit = false; 
 
     console.log('\n--- Smart Restaurant Queue ---');
     console.log('(ARRIVE / CALL / CANCEL / REMOVE / MERGE / STATUS / EXIT)\n');
 
-    /**
-     * LOOP INPUT AKSI: Memastikan user memilih menu yang valid (Defensive Programming)
-     */
-    while (true) {
-        const actionInput = readline.question('Choose action: ');
-        action = actionInput.toUpperCase().trim();
-
-        // Validasi ketat: Jika input tidak cocok dengan menu yang tersedia, minta ulang
-        if (action !== 'ARRIVE' && 
-            action !== 'CALL'   &&
-            action !== 'CANCEL' &&
-            action !== 'REMOVE' &&
-            action !== 'MERGE'  &&
-            action !== 'STATUS' &&
-            action !== 'EXIT') {
-                console.log('Your input is Incorrect! Please try again.');
-                continue; // Lompat ke atas loop input aksi
-        }
-        break; // Lolos validasi, keluar dari loop input aksi
-    }
+    // Prompt user input. Malformed string inputs trap naturally down into 'default' case.
+    const actionInput = readline.question('Choose action: ');
+    action = actionInput.toUpperCase().trim();
     
     /**
-     * PUSAT EKSEKUSI MENU (SWITCH-CASE)
+     * =========================================================================
+     * 4. MAIN ACTION DISPATCHER (SWITCH-CASE)
+     * =========================================================================
      */
     switch (action) {
         
         // -----------------------------------------------------------------
-        // CASE EXIT: MEMATIKAN PROGRAM
+        // CASE EXIT: TERMINATES APPLICATION STATE RUNTIME
         // -----------------------------------------------------------------
         case 'EXIT':
             console.log('--- Terminal Closed ---');
-            isExit = true; // Menyalakan sakelar keluar
+            isExit = true; // Flips the safety latch to break the outer ring loop chain
             break;
 
         // -----------------------------------------------------------------
-        // CASE ARRIVE: PELANGGAN BARU DATANG (MUTATED METHOD)
+        // CASE ARRIVE: INTAKE PROCESSING (MUTATED METHOD: PUSH/UNSHIFT)
         // -----------------------------------------------------------------
         case 'ARRIVE':
-            // Loop validasi input nama dan tipe customer
+            // Defensive internal loop for processing clean profile values
             while (true) {
                 const customerName = readline.question('Enter customer name: ');
                 customer = customerName.toUpperCase().trim();
 
                 if (customerName === '') {
                     console.log('Please input your name.');
-                    continue;
+                    continue; // Re-prompt name capture loop
                 }
 
                 const typeName = readline.question('Enter type (Regular / VIP): ');
@@ -100,65 +85,69 @@ while (true) {
 
                 if (type !== 'REGULAR' && type !== 'VIP') {
                     console.log('Your input is incorrect! Please fill the correct input.');
-                    continue;
+                    continue; // Re-prompt priority profile capture loop
                 }
-                break; // Lolos validasi nama & tipe, keluar loop input
+                break; // Fields validated, break out to storage routing
             }
             
-            // Instansiasi objek baru berdasarkan cetakan Constructor Person
+            // Instantiating memory footprint via Person blueprint constructor
             const person = new Person(customer, type);
     
-            // Penerapan konsep Mutated Method berdasarkan tingkatan prioritas
+            // Structural branching logic based on client priority rules
             if (person.type === 'REGULAR') {
-                queue.push(person); // .push() -> Memasukkan data ke PALING BELAKANG
+                queue.push(person); // .push() -> Mutated: Appends element at the absolute REAR boundary
                 console.log(`-> ${person.name} added to the back of the queue.`);
             } else if (person.type === 'VIP') {
-                queue.unshift(person); // .unshift() -> Memasukkan data ke PALING DEPAN
+                queue.unshift(person); // .unshift() -> Mutated: Injects element at index 0 (FRONT boundary)
                 console.log(`-> ${person.name} added to the front of the VIP queue!`);
             }
             break;
 
         // -----------------------------------------------------------------
-        // CASE CALL: MEMANGGIL ANTREAN TERDEPAN (MUTATED: SHIFT)
+        // CASE CALL: DISPATCH FRONT LINE SLOT (MUTATED METHOD: SHIFT)
         // -----------------------------------------------------------------
         case 'CALL':
             if (isQueueBlank(queue)) {
-                continue; // Jika kosong, batalkan aksi dan kembali ke menu utama
+                continue; // Short-circuit back to dispatcher ring
             }
             
-            // JEBAKAN DATA CAMPURAN: Cek apakah antrean nomor 1 berupa Grup (Array) atau Orang Biasa (Objek)
+            /**
+             * COMPOSITE DATA LAYER CHECK:
+             * Guards memory extraction. If index 0 possesses a length value, it's a structural 
+             * cluster Array, meaning we must use coordinate notation [0][0] to look deeper.
+             */
             if (queue[0].length !== undefined) {
-                // Jika .length tidak undefined, berarti kotak tersebut adalah Array grup rombongan
-                console.log(`-> GROUP of ${queue[0].length} members is invited to enter the restaurant!`);
+                // Triggers true if index 0 points to a nested group array matrix
+                console.log(`-> GROUP led by ${queue[0][0].name} is invited to enter the restaurant!`);
             } else {
-                // Jika .length undefined, berarti kotak tersebut adalah Objek tunggal biasa
+                // Triggers true if index 0 points to a standalone data blueprint object
                 console.log(`-> ${queue[0].name} is invited to enter the restaurant!`);
             }
-            queue.shift(); // .shift() -> Menghapus elemen pertama di indeks 0
+            queue.shift(); // .shift() -> Mutated: Removes index 0 and re-maps remaining index references
             break;
 
         // -----------------------------------------------------------------
-        // CASE CANCEL: ANTREAN PALING BELAKANG PULANG (MUTATED: POP)
+        // CASE CANCEL: POP REAR END BOUNDARY (MUTATED METHOD: POP)
         // -----------------------------------------------------------------
         case 'CANCEL':
             if (isQueueBlank(queue)) {
                 continue;
             }
             
-            // Mencari nomor indeks terakhir di dalam array secara dinamis
+            // Dynamically lock down current final array edge coordinate
             let lastIndex = queue.length - 1;
             
-            // Proteksi data campuran untuk elemen paling belakang sebelum di-pop
+            // Structural detection wrapper before clearing memory
             if (queue[lastIndex].length !== undefined) {
-                console.log(`-> A GROUP of ${queue[lastIndex].length} members canceled the queue and went home.`);
+                console.log(`-> A GROUP of ${queue[lastIndex][0].name} canceled the queue and went home.`);
             } else {
                 console.log(`-> ${queue[lastIndex].name} canceled the queue and went home.`);
             }
-            queue.pop(); // .pop() -> Menghapus elemen terakhir dari array
+            queue.pop(); // .pop() -> Mutated: Splices away trailing edge boundary element completely
             break;
 
         // -----------------------------------------------------------------
-        // CASE REMOVE: MENGHAPUS ORANG SECARA SPESIFIK (MUTATED: SPLICE)
+        // CASE REMOVE: TARGETED DELETION SURGERY (MUTATED METHOD: SPLICE)
         // -----------------------------------------------------------------
         case 'REMOVE':
             if (isQueueBlank(queue)) {
@@ -168,41 +157,56 @@ while (true) {
             const nameToRemoveInput = readline.question('Enter customer name to remove: ');
             const nameToRemove = nameToRemoveInput.toUpperCase().trim();
             let targetNameIndex = -1;
-            let counter = 0; // Membuat variabel penghitung manual untuk mencatat nomor indeks
+            let counter = 0; // Manual tracker mapping structural coordinates of array slots
 
-            /**
-             * ATURAN FOR...OF PADA DATA CAMPURAN:
-             * Saat loop berjalan, variabel 'element' bisa berupa Objek {} atau Array [].
-             * Kita harus menyaringnya menggunakan trik '.length === undefined'.
-             */
+            // Sequential linear data structure scan via for...of loop
             for (const element of queue) {
-                if (element.length === undefined) { // Pastikan kotak ini murni Objek tunggal
+                
+                // CONDITION A: Element is a Standalone Object
+                if (element.length === undefined) { 
                     if (element.name === nameToRemove) {
-                        targetNameIndex = counter; // Kunci nomor indeksnya
+                        targetNameIndex = counter; // Lock baseline array slot index
                         break;
                     }
+                } 
+                // CONDITION B: Element is a Cluster Group Array
+                else { 
+                    let isNameInGroup = false;
+
+                    // Deep internal layer array lookup scan
+                    for (const person of element) {
+                        if (person.name === nameToRemove) {
+                            isNameInGroup = true;
+                            break; // Stop inner lookup loop
+                        }
+                    }
+
+                    if (isNameInGroup) {
+                        targetNameIndex = counter; // Group cluster found, lock root structural index
+                        break; // Stop main line lookup loop
+                    }
                 }             
-                counter++; // Naikkan indeks manual seiring berjalannya loop
+                counter++; // Increment tracking cursor position
             }
             
-            // Eksekusi penghapusan jika indeks target ditemukan
+            // Mutation handling block based on look-up pointer results
             if (targetNameIndex !== -1) {
-                queue.splice(targetNameIndex, 1); // .splice(mulai, hapusBerapa) -> Memotong isi tengah array
-                console.log(`-> ${nameToRemove} has been specifically removed from the queue.`);
+                queue.splice(targetNameIndex, 1); // .splice() -> Mutated: Chops out 1 slot package completely
+                console.log(`-> The entry associated with ${nameToRemove} has been successfully removed from the queue.`);
             } else {
                 console.log(`-> Customer named ${nameToRemove} not found in the queue.`);
             }
             break;
 
         // -----------------------------------------------------------------
-        // CASE MERGE: MEMBUAT GRUP PRIVAT MENGIKUTI TEMAN DI DEPAN
+        // CASE MERGE: COALESCE DATA SECTOR (ADVANCED COMPOSITE COUPLING LOGIC)
         // -----------------------------------------------------------------
         case 'MERGE':
             if (isQueueBlank(queue)) {
                 continue;
             }
 
-            let isMergeDone = false; // Penanda khusus agar bisa menembus keluar dari loop while di bawah
+            let isMergeDone = false; // Outer switch-case loop flag controller
 
             while (true) {
                 const nameToMergeInput = readline.question('Enter group names (separated by comma): ');
@@ -211,10 +215,10 @@ while (true) {
                     continue;
                 }
 
-                // Memecah teks string menjadi array kumpulan nama mentah
+                // Generates string-based raw Array elements out of comma separations
                 const mergedNames = nameToMergeInput.split(',');
 
-                // For tradisional untuk memproses manipulasi teks langsung pada nilai indeks array asli
+                // Clean formatting allocations using index array reference updates directly
                 for (let i = 0; i < mergedNames.length; i++) {
                     mergedNames[i] = mergedNames[i].toUpperCase().trim();
                 }
@@ -223,69 +227,70 @@ while (true) {
                 let existPerson = null;
              
                 /**
-                 * TAHAP 1: MENCARI APAKAH ADA ANGGOTA GRUP YANG SUDAH MENGANTRE DI DEPAN
+                 * STAGE 1: INLINE LEADER ANCHOR LOOKUP
+                 * Iterates central layout to detect if an incoming member is already waiting.
                  */
                 for (let i = 0; i < queue.length; i++) {
-                    if (queue[i].length === undefined) { // Hanya memeriksa objek tunggal biasa
+                    if (queue[i].length === undefined) { // Check plain objects profiles only
                         for (const inputName of mergedNames) {
                             if (queue[i].name === inputName) {
-                                indexInQueue = i; // Mengunci posisi indeks terdepan sebagai jangkar grup
-                                existPerson = queue[i]; // Menyimpan data objek orang tersebut
+                                indexInQueue = i; // Map tracking pointer anchor
+                                existPerson = queue[i]; // Cache data node profile
                                 break;
                             }
                         }
                     }
-                    if (indexInQueue !== -1) break; // Hentikan loop utama jika jangkar sudah ketemu
+                    if (indexInQueue !== -1) break; // Terminate query loop early if anchor is locked
                 }
 
-                const groupArray = []; // Wadah berbentuk array untuk mengikat rombongan menjadi satu kesatuan
+                const groupArray = []; // Unified nested array box layout to lock clusters under one index
 
                 /**
-                 * TAHAP 2: PROSES PENYATUAN GRUP (LOGIKA BERLIAN ANDA)
+                 * STAGE 2: MEMORY RE-ARRANGEMENT & INTEGRATION
                  */
                 if (indexInQueue !== -1) {
-                    // KONDISI A: Jika ada teman yang mengantre di depan
-                    groupArray.push(existPerson); // Masukkan orang lama tersebut sebagai anggota pertama grup
+                    // SCENARIO A: Anchor waiting ahead is detected
+                    groupArray.push(existPerson); // Set the inline leader at index 0 of the new cluster array
 
-                    // Cari nama sisa lainnya yang diinput oleh user
+                    // Process incoming secondary trailing data nodes
                     for (const name of mergedNames) {
                         if (name !== '' && name !== existPerson.name) {
                             
-                            // Jika nama sisa tersebut ternyata ada di antrean belakang, hapus dulu agar tidak ganda
+                            // Check if a secondary member is currently lagging behind in line, delete them to avoid duplicates
                             for (let j = 0; j < queue.length; j++) {
                                 if (queue[j].length === undefined && queue[j].name === name) {
-                                    queue.splice(j, 1); // Hapus orang tersebut dari barisan belakang
+                                    queue.splice(j, 1); // Mutated: Slice away the trailing duplicate node
                                     break;
                                 }
                             }
-                            // Buat objek Person baru untuk nama sisa tersebut dan masukkan ke grup
+                            // Form fresh Person instance records and bundle them into group array
                             groupArray.push(new Person(name, 'REGULAR'));
                         }
                     }
                     
-                    // .splice(posisi, gantiBerapa, dataBaru) -> Ganti objek tunggal di depan dengan array grup utuh
+                    // .splice(targetIndex, deleteCount, insertItem) -> Replaces single object profile with nested cluster array block
                     queue.splice(indexInQueue, 1, groupArray);
                     console.log(`-> Merged successfully! The group follows ${existPerson.name}'s position at slot number ${indexInQueue + 1}.`);
                 
                 } else {
-                    // KONDISI B: Jika semua nama dalam rombongan adalah orang baru
+                    // SCENARIO B: Brand new cluster block arriving entirely from outside bounds
                     for (const name of mergedNames) {
                         if (name !== '') {
                             groupArray.push(new Person(name, 'REGULAR'));
                         }
                     }
-                    queue.push(groupArray); // Masukkan seluruh kotak grup ke paling belakang antrean utama
+                    queue.push(groupArray); // Append composite block utuh into trailing boundary limits
                     console.log(`-> New group successfully added to the back of the queue.`);
                 }
                 
-                isMergeDone = true; // Set true agar menandakan sub-proses merge telah selesai
-                break; // Keluar dari loop while(true) milik MERGE
+                isMergeDone = true; 
+                break; // Break inner formatting loop
             } 
-            if (isMergeDone) break; // Keluar dari SWITCH-CASE menuju piringan luar
+            if (isMergeDone) break; // Break switcher structure scope
             break;
 
         // -----------------------------------------------------------------
-        // CASE STATUS: MENAMPILKAN VISUAL ANTREAN (UNMUTATED: SLICE + FOR...OF)
+        // CASE STATUS: LOOKUP MAP ENGINE VISUALS (UNMUTATED VIEW ENGINE)
         // -----------------------------------------------------------------
         case 'STATUS':
             console.log('\n--- Current Position ---');
@@ -293,38 +298,45 @@ while (true) {
             if (queue.length === 0) {
                 console.log('Queue is empty');
             } else {
-                let index = 1; // Variabel penanda nomor urut antrean visual
+                let index = 1; // Sequential tracking cursor for printing aligned numbers
                 
-                // .slice() -> Mengkloning/menyalin array secara utuh (Unmutated) agar aman dibaca
+                // .slice() -> Unmutated Copy: Clones array layer safely to insulate source array from render manipulation
                 const viewQueue = queue.slice();
 
                 for (const element of viewQueue) {
-                    // Pengecekan cerdas tipe data campuran
+                    // Polymorphic property detection check
                     if (element.length !== undefined) {
-                        // Jika elemen ber-properti panjang, berarti kotak ini berisi grup rombongan (Array)
+                        // Element contains length property attributes -> Renders a Nested Array Group
                         let groupNames = [];
 
-                        // Lakukan perulangan di dalam perulangan (Nested Loop for...of) untuk membedah isi grup
+                        // Deep layer block extraction using Nested Loops
                         for (const person of element) {
                             groupNames.push(person.name);
                         }
-                        // .join(',') -> Menggabungkan array teks menjadi satu string utuh dipisahkan koma
+                        // .join() -> Unmutated: flattens internal data arrays into readable comma strings
                         console.log(`${index}. GROUP: [${groupNames.join(', ')}]`);
                     } else {
-                        // Jika elemen tidak ber-properti panjang, berarti kotak ini adalah Objek tunggal biasa
+                        // Element lacks length property attributes -> Renders standard Profile Object shape
                         console.log(`${index}. ${element.name} (${element.type})`);
                     }
-                    index++; // Menaikkan nomor urut visual
+                    index++; // Advance aligned visual output print count
                 }
             }
-            break;   
+            break;
+
+        // -----------------------------------------------------------------
+        // DEFAULT CASE: CONSOLE INPUT FALLBACK HOOK TRAWLER
+        // -----------------------------------------------------------------
+        default:
+            console.log('Your input is Incorrect! Please try again.');
+            break; // Breaks out from switch scope, letting outer while loop roll back to the top automatically
     }
 
     /**
-     * PINTU KELUAR UTAMA PROGRAM
-     * Mengecek apakah sakelar isExit bernilai true. Jika iya, patahkan loop while luar.
+     * EXIT TRIGGER SENSING ACTUATOR
+     * Checked on every single loop rotation right before structural layout re-prints.
      */
     if (isExit) {
-        break;
+        break; // Snaps outer ring infinite while pipeline chain cleanly
     }
 }
