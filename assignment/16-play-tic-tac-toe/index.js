@@ -228,7 +228,7 @@ function TicTacToeController(config){
   * @return {boolean} True jika menang
   */
  this._isWon = function(lastRow, lastCol){
-  let gridSize = config.gridSize; // Mengambil angka ukuran dari objek config
+  const gridSize = config.gridSize; // Mengambil angka ukuran dari objek config
   
   // A. Cek Kemenangan Horizontal (Satu Baris)
   let rowWin = true;
