@@ -1,0 +1,47 @@
+@use 'sass:map';
+
+@use '../abstracts' as *;
+
+.btn{
+  display: flex;
+  gap: 2px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 2px 6px 0 rgba($color: #1018280F, $alpha: 0.06);
+  cursor: pointer;
+  
+  &--disabled {
+    background-color: map.get($color-neutral, 100);
+    color: map.get($color-neutral, 200);
+  }
+
+  &--enabled {
+    background-color: map.get($color-neutral, 900);
+    color: $color-white;
+  }
+}
+
+.check-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid;
+  border-radius: 6px;
+  cursor: pointer;
+  &--unchecked {
+    border-color: map.get($color-neutral, 300);
+    img {
+      display: none;
+    }
+  }
+
+  &--checked {
+    border-color: #0088FF;
+    img {
+      display: block;
+    }
+  }
+}

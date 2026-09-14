@@ -1,0 +1,14 @@
+.eyebrow {
+  margin-bottom: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.eyebrow--primary {
+  color: #DBA558;
+}
+
+.eyebrow--secondary {
+  color: #fff;
+}

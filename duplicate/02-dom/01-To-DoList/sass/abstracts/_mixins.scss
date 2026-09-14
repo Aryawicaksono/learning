@@ -1,0 +1,19 @@
+@use 'sass:map';
+
+@use 'tokens' as t;
+
+@mixin breakpoint($bp) {
+  $value: map.get(t.$breakpoints, $bp);
+
+  @if $value == null {
+    @error 'Unknown breakpoint size `#{$bp}`. Available: #{map.keys(t.$breakpoints)}.';
+  }
+
+  @if $bp == sm {
+    @content;
+  } @else {
+    @media (min-width: $value) {
+      @content;
+    }
+  }
+}

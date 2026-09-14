@@ -1,0 +1,17 @@
+{
+  "name": "01-to-dolist",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "sass sass/main.scss css/main.css --watch",
+    "build": "sass sass/main.scss css/main.css --style=compressed"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "sass": "^1.104.1"
+  }
+}

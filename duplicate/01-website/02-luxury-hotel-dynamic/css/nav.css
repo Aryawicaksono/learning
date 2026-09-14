@@ -1,0 +1,41 @@
+.nav {
+  padding: 12px 0;
+  background-color: #fff;
+}
+
+.nav__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__content {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav__list {
+  display: flex;
+}
+
+.nav__item {
+  padding: 10px 16px;
+}
+
+.nav__item a {
+  font-size: 14px;
+  color: #1F2937;
+}
+
+.nav__separator {
+  border: none;
+  height: 44px;
+  width: 1px;
+  background-color: #E5E7EB;
+}
+
+.nav__button {
+  display: flex;
+  gap: 16px;
+}

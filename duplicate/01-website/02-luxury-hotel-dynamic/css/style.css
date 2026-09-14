@@ -1,0 +1,24 @@
+.section-hero {
+  background: url("../img/bg-hero.jpg") center/cover no-repeat;
+  color: #fff;
+  background-color: hsla(0%, 0%, 0%, 0.5);
+}
+
+.section-hero__inner {
+  padding: 143px 0;
+}
+
+.section-hero__content {
+  max-width: 592px;
+}
+.section-hero__title {
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+
+.section-hero__desc {
+  font-size: 18px;
+  margin-bottom: 32px;
+  padding: 16px 8px;
+  width: 488px;
+}

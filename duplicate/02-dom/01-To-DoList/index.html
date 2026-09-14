@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css"/>
+  <title>To Do List</title>
+</head>
+<body>
+  <div class="island">
+    <div class="header">
+      <h1 class="header__title">Todolist</h1>
+      <div class="header__widgets">
+        <div class="header__widget header__widget--task">
+          <img src="./img/icon-note.svg" alt="Icon note" class="header__widget-icon"/>
+          <div class="header__widget-content">
+            <p class="header__widget-title">Task</p>
+            <p class="header__widget-count" id="taskCount">0</p>
+          </div>
+        </div>
+        <div class="header__widget header__widget--active">
+           <img src="./img/icon-layout.svg" alt="Icon note" class="header__widget-icon"/>
+          <div class="header__widget-content">
+            <p class="header__widget-title">Active</p>
+            <p class="header__widget-count" id="activeCount">0</p>
+          </div>
+        </div>
+        <div class="header__widget header__widget--completed">
+          <img src="./img/icon-sqr-check.svg" alt="Icon note" class="header__widget-icon"/>
+          <div class="header__widget-content">
+            <p class="header__widget-title">Done</p>
+            <p class="header__widget-count" id="completedCount">0</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="input-panel">
+      <div class="input-panel__content">
+        <img src="./img/icon-pen.svg" alt="Icon pen" class="input-panel__content-icon"/>
+        <input type="text" placeholder= "Add a new task..." class="input-panel__content-input" id="taskInput"/>
+      </div>
+      <button class="input-panel__btn btn btn--disabled" id="submitBtn" disabled>
+        <img src="./img/icon-plus.png" alt="Icon plus" class="input-panel__btn-icon"/>
+        <p class="input-panel__btn-text">Add</p>
+      </button>
+    </div>
+    <div class="content">
+      <div class="content__inner">
+        <div class="content__segmented-control">
+          <div class="content__segment content__segment--enabled" id="taskSegment">
+            <p class="content__segment-title">All</p>
+          </div>
+          <div class="content__segment content__segment--disabled" id="activeSegment">
+            <p class="content__segment-title">Active</p>
+          </div>
+          <div class="content__segment content__segment--disabled" id="completedSegment">
+            <p class="content__segment-title">Completed</p>
+          </div>
+        </div>
+        <div class="content__content">
+          <div class="content__content-inner">
+            <img src="./img/icon-layout-box.svg" alt="Icon layout box" class="content__content-icon"/>
+            <p class="content__content-title">No tasks yet</p>
+            <p class="content__content-desc">Add your first task above to get started. Stay productive!</p>
+          </div>
+        </div>
+      </div>
+  </div>
+  <script src="./script/index.js"></script>
+</body>
+</html>

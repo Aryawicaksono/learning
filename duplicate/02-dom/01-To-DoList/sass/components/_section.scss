@@ -1,0 +1,208 @@
+@use 'sass:map';
+
+@use '../abstracts' as *;
+
+.island {
+  width: $island-width;
+  margin: 24px;;
+  @include breakpoint(md) {
+    width: 600px;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 18px 0;
+
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    color: map.get($color-neutral, 900);
+  }
+
+  &__widgets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  &__widget {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1 1;
+    min-width: 150px;
+    border-radius: 12px;
+    padding: 12px;
+
+    &--task {
+      background: linear-gradient(180deg, #CF8BF9, #B264FD);
+      color: #F2C7FF;
+    }
+
+    &--active {
+      background: linear-gradient(180deg, #5F98FF, #1865D5);
+      color: #82D0FF;
+    }
+
+    &--completed {
+      background: linear-gradient(180deg, #85E980, #4D9A44);
+      color: #D8F4D6;
+    }
+  }
+
+  &__widget-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  &__widget-title {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  &__widget-count {
+    font-size: 33px;
+    font-weight: 600;
+  }
+}
+
+.input-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 0;
+  }
+
+  &__content-input {
+    border: none;
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include breakpoint(md) {
+      width: 450px;
+    }
+  }
+}
+
+.content {
+  padding: 0 8px 8px 8px;
+
+  &__segmented-control {
+    display: flex;
+    padding: 12px;
+  }
+
+  &__segment {
+    padding: 5px 16px;
+    padding-left: 0;
+    cursor: pointer;
+
+    &--disabled {
+      color: map.get($color-neutral, 400);
+    }
+
+    &--enabled {
+      color: map.get($color-neutral, 900);
+    }
+  }
+
+  /* Kontainer tempat list UL atau Empty State dirender */
+  &__content {
+    width: 100%;
+  }
+
+  &__content-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    width: 200px;
+    height: auto;
+    margin: 114px auto;
+  }
+
+  &__content-title {
+    text-align: center;
+    color: map.get($color-neutral, 900);
+  }
+
+  &__content-desc {
+    font-size: 14px;
+    text-align: center;
+    color: map.get($color-neutral, 400);
+  }
+}
+
+/* Styling untuk list item dinamis yang dihasilkan JS */
+.task {
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__box-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px;
+    flex: 1;
+    min-width: 0; /* WAJIB: Agar flex child mengizinkan teks terpotong ellipsis */
+  }
+
+  &__task-desc {
+    font-weight: 500;
+    line-height: 1;
+    color: map.get($color-neutral, 900);
+    white-space: nowrap;     /* WAJIB: Mencegah teks turun baris */
+    overflow: hidden;        /* WAJIB: Sembunyikan overflow */
+    text-overflow: ellipsis; /* WAJIB: Tanda titik-titik (...) */
+    min-width: 0;
+    margin: 0;
+  }
+
+  &__task-desc--done {
+    text-decoration: line-through;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Pembungkus kedua tombol (Edit & Delete) */
+  &__box-btns {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0; /* Mencegah tombol tertekan gepeng */
+  }
+
+  /* Elemen button individual */
+  &__box-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

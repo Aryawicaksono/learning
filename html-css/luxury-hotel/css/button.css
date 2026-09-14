@@ -1,0 +1,15 @@
+.button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  height: 40px;
+  width: 114px;
+  background: 1px solid #1E1E1E;
+  background-color: #1E1E1E;
+  color: #fff;
+}
+
+.button.outline {
+  border: 1px solid #E5E7EB;
+  background-color: #fff;
+  color: #1F2937;
+}
