@@ -1,0 +1,17 @@
+@use 'sass:map';
+
+$color-neutral: (
+  50: #F4F4F4,
+  100: #EFEFEF,
+  200: #D2D2D2,
+  300: #B5B5B5,
+  400: #989898,
+  500: #7E7E7E,
+  600: #646464,
+  700: #4A4A4A,
+  800: #343434,
+  900: #1E1E1E,
+);
+
+$font-body: Inter, Helvetica, Arial, sans-serif;
+

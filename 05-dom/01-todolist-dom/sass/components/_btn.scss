@@ -1,0 +1,14 @@
+@use 'sass:map';
+
+@use '../abstracts' as *;
+
+.btn {
+  display: flex;
+  gap: 6px;
+  width: 70px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background-color: map.get($color-neutral, 900);
+  color: #fff;
+  cursor: pointer;
+}

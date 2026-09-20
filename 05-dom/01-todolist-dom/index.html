@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css"/>
+  <title>To Do List </title>
+</head>
+<body>
+  <div class="todo-island">
+    <div class="todo-island__title">Todolist</div>
+    <div class="todo-island__header">
+      <div class="stat-grid">
+        <div class="stat-widget stat-widget--purple">
+          <img src="./img/icon-note.svg" alt="Icon note" class="stat-widget__icon"/>
+          <div class="stat-widget__info">
+            <span class="stat-widget__label">Task</span>
+            <span class="stat-widget__value">3</span>
+          </div>
+        </div>
+                <div class="stat-widget stat-widget--blue">
+          <img src="./img/icon-layout.svg" alt="Icon layout box" class="stat-widget__icon"/>
+          <div class="stat-widget__info">
+            <span class="stat-widget__label">Active</span>
+            <span class="stat-widget__value">2</span>
+          </div>
+        </div>
+        <div class="stat-widget stat-widget--green">
+          <img src="img/icon-sqr-check.svg" alt="Icon square check" class="stat-widget__icon"/>
+          <div class="stat-widget__info">
+            <span class="stat-widget__label">Done</span>
+            <span class="stat-widget__value">1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="todo-island__form">
+      <div class="task-form">
+        <div class="task-input">
+          <img src="./img/icon-pen.svg" alt="Icon pen" class="task-input__icon"/>
+          <input type="text" class="taskinput__field" placeholder="Add a new task..."/>
+        </div>
+        <div class="btn task-form__btn">
+          <img src="./img/icon-plus.png" alt="Icon plus"/>
+          <span>Add</span>
+        </div>
+      </div>
+    </div>
+    <div class="todo-island__body">
+      <div class="panel">
+        <div class="panel__header">
+          <div class="segmented-control"></div>
+        </div>
+        <div class="panel__body">
+          <div class="task-list">
+            <div class="task-item">
+              <div class="checkbox"></div>
+              <div class="task-item__label">Implementasi halaman Dashboard</div>
+            </div>
+            <div class="task-item">
+              <div class="checkbox"></div>
+              <div class="task-item__label">Implementasi halaman Register</div>
+            </div>
+            <div class="task-item">
+              <div class="checkbox"></div>
+              <div class="task-item__label">Build halaman Dashboard</div>
+            </div>
+            <div class="task-item task-item--selected">
+              <div class="checkbox checkbox--checked"></div>
+              <div class="task-item__label">Komponen To-Do List</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="scripts/index.js"></script>
+</body>
+</html>

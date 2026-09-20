@@ -1,0 +1,265 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: Inter, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input {
+  width: 400px;
+  border: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 500;
+  color: #989898;
+}
+
+input:focus {
+  outline: none;
+  border: none;
+}
+
+input::placeholder {
+  font-size: inherit;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+button {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.btn {
+  display: flex;
+  gap: 6px;
+  width: 70px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background-color: #1E1E1E;
+  color: #fff;
+  cursor: pointer;
+}
+
+.checkbox {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 1px solid #B5B5B5;
+}
+.checkbox--checked {
+  border-color: #0088FF;
+  background-image: url("../img/icon-check.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.panel {
+  border-radius: 16px;
+  border: 1px solid #EFEFEF;
+  background: #fff;
+}
+.panel__header {
+  padding: 12px;
+}
+.panel__body {
+  padding: 12px;
+}
+
+.segmented-control {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 8px;
+  background-color: #F4F4F4;
+}
+.segmented-control__segment {
+  padding: 5px 14px;
+  border-radius: 6px;
+  color: #989898;
+  cursor: pointer;
+}
+.segmented-control__segment--selected {
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0 2px 4px rgba(145, 145, 145, 0.25);
+}
+
+.stat-grid {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.stat-widget {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+}
+.stat-widget__icon {
+  margin-bottom: 8px;
+}
+.stat-widget__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.stat-widget__label {
+  font-size: 14px;
+}
+.stat-widget__value {
+  font-size: 40px;
+  line-height: 1;
+}
+.stat-widget--purple {
+  background: linear-gradient(180deg, #CF8BF9, #B264FD);
+}
+.stat-widget--purple .stat-widget__label, .stat-widget--purple .stat-widget__value {
+  color: #F2C7FF;
+}
+.stat-widget--blue {
+  background: linear-gradient(180deg, #5F98FF, #1865D5);
+}
+.stat-widget--blue .stat-widget__label, .stat-widget--blue .stat-widget__value {
+  color: #82D0FF;
+}
+.stat-widget--green {
+  background: linear-gradient(180deg, #85E980, #4D9A44);
+}
+.stat-widget--green .stat-widget__label {
+  color: #D4F5D0;
+}
+.stat-widget--green .stat-widget__value {
+  color: #D8F4D6;
+}
+
+.todo-island {
+  width: 600px;
+  margin-top: 86px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 18px 18px 10px 18px;
+  background-color: #fff;
+}
+.todo-island__title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+.todo-island__header {
+  padding-bottom: 10px;
+}
+.todo-island__form {
+  padding: 10px 0;
+}
+
+.task-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-input {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.task-list {
+  padding: 12px;
+}
+
+.task-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 18px 0;
+  border: 1px solid #EFEFEF;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.task-item--selected {
+  background-color: #F4F4F4;
+}
+.task-item--selected .task-item__label {
+  text-decoration: line-through;
+}
+
+/*# sourceMappingURL=main.css.map */

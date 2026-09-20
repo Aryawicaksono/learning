@@ -1,0 +1,57 @@
+@use 'sass:map';
+@use '../abstracts' as *;
+
+html {
+  box-sizing: border-box;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: $font-body;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input {
+  width: 400px;
+  border: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 500;
+  color: map.get($color-neutral, 400);
+}
+
+input:focus {
+  outline: none;
+  border: none;
+}
+
+input::placeholder {
+  font-size: inherit;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+button{
+  border: none;
+  box-shadow: none;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}

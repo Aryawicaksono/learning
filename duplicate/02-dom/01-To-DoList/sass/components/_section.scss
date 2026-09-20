@@ -160,6 +160,8 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    border: 1px solid map.get($color-neutral, 100);
+    border-radius: 8px;
   }
 
   &__box-content {

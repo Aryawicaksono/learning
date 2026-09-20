@@ -267,6 +267,8 @@ input {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  border: 1px solid #EFEFEF;
+  border-radius: 8px;
 }
 .task__box-content {
   display: flex;

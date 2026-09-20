@@ -1,0 +1,56 @@
+@use 'sass:map';
+@use '../abstracts' as *;
+
+.todo-island {
+  width: 600px;
+  margin-top: 86px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 18px 18px 10px 18px;
+  background-color: #fff;
+
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  &__header {
+    padding-bottom: 10px;
+  }
+  &__form {
+    padding: 10px 0;
+  }
+}
+
+.task-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-input {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.task-list {
+  padding: 12px;
+}
+
+.task-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 18px 0;
+  border: 1px solid map.get($color-neutral, 100);
+  border-radius: 6px;
+  cursor: pointer;
+
+  &--selected {
+    background-color: map.get($color-neutral, 50);
+    .task-item__label {
+      text-decoration: line-through;
+    }
+  }
+} 

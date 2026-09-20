@@ -1,0 +1,17 @@
+@use 'sass:map';
+@use '../abstracts' as *;
+
+.panel {
+  $padding: 12px;
+  border-radius: 16px;
+  border: 1px solid map.get($color-neutral, 100);
+  background: #fff;
+
+  &__header {
+    padding: $padding;
+  }
+
+  &__body {
+    padding: $padding;
+  }
+}
