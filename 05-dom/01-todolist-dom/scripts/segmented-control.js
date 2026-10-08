@@ -14,6 +14,11 @@
       this._render();
     }
 
+    setSelectedSegmentIndex(index){
+      this._selectedSegmentIndex = index;
+      this._render();
+    }
+
     _render() {
       const segmentElements = this._segments.map((segment, index)=>{
         return this._buildSegmentElement(
