@@ -3,10 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   <title>Todo List</title>
 </head>
 <body>
-  <div class="container">
+  <div class="todo-island">
+    <h2 class="todo-island__title">TodoList</h2>
+    <div class="todo-island__header">
+        <div class="stat-widget stat-widget--task "></div>
+        <div class="stat-widgets stat-widget--active"></div>
+        <div class="stat-widgets stat-widget--done"></div>
+    </div>
+    <div class="todo-island__form">
+      <div class="todo-island__input-field">
+        <img src="./src/img/icon-pen.svg" alt="Icon pen"/>
+        <input type="text" placeholder="Add a new task..." class="todo-island__input"/>
+      </div>
+      <button class="todo-island__btn">
+        <img src="./src/img/icon-plus.png" alt="Icon plus"/>
+        <span class="todo-island__btn-label">Add</span>
+      </button>
+    </div>
+    <div class="todo-island__body">
+      <div class="segmented-control">
+        <button class="segmented-control__segment">All</button>
+        <button class="segmented-control__segment">Active</button>
+        <button class="segmented-control__segment">Completed</button>
+      </div>
+      <div class="panel">
+        <ul class="task-list">
+          <li class="task-item">
+            <span class="checkbox task-item__checkbox"></span>
+            <span class="task-item__label">Implementasi halaman register</span>
+            <div class="task-item__actions">
+              <button class="task-item__action task-item__action--edit"></button>
+              <button class="task-item__action task-item__action--delete"></button>
+            </div>
+          </li>
+          <li class="task-item">
+            <span class="checkbox task-item__checkbox"></span>
+            <span class="task-item__label">Build halaman dashboard</span>
+            <div class="task-item__actions">
+              <button class="task-item__action task-item__action--edit"></button>
+              <button class="task-item__action task-item__action--delete"></button>
+          </li>
+          <li class="task-item">
+            <span class="checkbox task-item__checkbox checkbox--selected"></span>
+            <span class="task-item__label">Komponen To Do List</span>
+            <div class="task-item__actions">
+              <button class="task-item__action task-item__action--edit"></button>
+              <button class="task-item__action task-item__action--delete"></button>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </body>
 </html>

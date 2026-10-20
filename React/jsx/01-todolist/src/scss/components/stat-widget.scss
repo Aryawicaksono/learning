@@ -1,0 +1,40 @@
+
+.stat-widget {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+
+  &--task {
+    background: linear-gradient(to bottom, #CF8BF9, #B264FD);
+    color: #F2C7FF;
+  }
+  &--active {
+     background: linear-gradient(to bottom, #5F98FF, #1865D5);
+     color: #82D0FF;
+  }
+  &--done {
+    background: linear-gradient(to bottom, #85E980,
+    #4D9A44);
+    color: #D4F5D0;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  &__label {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  &__value {
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1.0;
+  }
+}

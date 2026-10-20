@@ -1,0 +1,18 @@
+@use 'sass:map';
+
+@use '../abstracts' as *;
+
+.segmented-control {
+  padding: 12px;
+
+  &__segment {
+    padding: 5px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: map.get($color-neutral, 400);
+    cursor: pointer;
+    &--selected {
+      color: map.get($color-neutral, 900);
+    }
+  }
+}

@@ -1,0 +1,72 @@
+@use 'sass:map';
+
+@use '../abstracts' as *;
+
+.todo-island {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 18px;
+
+  &__header{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 18px;
+    padding-bottom: 10px;
+  }
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    color: map.get($color-neutral, 900);
+  }
+  &__content {
+    display: flex;
+    gap: 6px;
+  }
+
+  &__form {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 18px;
+  }
+  &__input-field {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+  }
+  &__input {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &::placeholder {
+      font-size: 16px;
+      font-weight: 500;
+      color: map.get($color-neutral, 400);
+    }
+  }
+
+  &__form-action {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba($color: #1018280F, $alpha: 0.06);
+    font-size: 16px;
+    font-weight: 500;
+    background-color: map.get($color-neutral, 900);
+    color: $color-white;
+  }
+
+  .panel {
+    .task-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 12px;
+    }
+  }
+}

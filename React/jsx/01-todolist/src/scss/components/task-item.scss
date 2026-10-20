@@ -1,0 +1,69 @@
+@use 'sass:map';
+
+@use '../abstracts' as *;
+
+.task-item{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 18px;
+  &--checked {
+    .task-item__label {
+      text-decoration: line-through;
+    }
+  }
+
+  &:hover {
+    .task-item__actions {
+      opacity: 1;
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    cursor: pointer;
+  }
+
+  .checkbox {
+    width: 20px;
+    height: 20px;
+    border: 1px solid;
+    border-radius: 6px;
+    border-color: map.get($color-neutral, 300);
+    &--checked {
+      background-image: url('../../assets/img/icon-check.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      border-color: $color-accent;
+    }
+  }
+
+    &__label{
+    font-size: 16px;
+    font-weight: 500;
+    color: map.get($color-neutral, 900);
+  }
+
+  &__actions {
+    position: absolute;
+    right: 5px;
+    display: flex;
+    gap: 12px;
+    opacity: 0;
+  }
+  &__action{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+
+    &:hover {
+    background-color: map.get($color-neutral, 200 );
+  }
+  }
+}
