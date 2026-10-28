@@ -23,7 +23,7 @@ export class SegmentedControl extends React.Component{
             <span
               key = {index}
               className = {className}
-              onClick={onChange}
+              onClick={()=> onChange(index)}
             >{label}</span>
           )
         })}

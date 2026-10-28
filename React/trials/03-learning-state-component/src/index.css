@@ -1,0 +1,60 @@
+html {
+  box-sizing: border-box;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+  background-color: lightgray;
+  color: black;
+}
+
+h3 {
+  align-self: center;
+  margin-block: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+button{
+  padding: 5px;
+  min-width: 34px;
+  min-height: 34px;
+  cursor: pointer;
+}
+.card-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.count-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.count-card__value {
+  align-self: center;
+  margin-block: 0;
+  font-size: 50px;
+  font-weight: 800;
+}
+
+.count-card__actions {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+

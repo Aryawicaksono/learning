@@ -5,8 +5,9 @@
 .task-item{
   position: relative;
   display: flex;
-  justify-content: space-between;
-  padding: 18px;
+  align-items: center;
+  gap: 12px;
+
   &--checked {
     .task-item__label {
       text-decoration: line-through;
@@ -17,6 +18,12 @@
     .task-item__actions {
       opacity: 1;
     }
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px;
   }
 
   &__content {
@@ -41,7 +48,7 @@
     }
   }
 
-    &__label{
+    &__label {
     font-size: 16px;
     font-weight: 500;
     color: map.get($color-neutral, 900);
@@ -63,7 +70,27 @@
     border-radius: 6px;
 
     &:hover {
-    background-color: map.get($color-neutral, 200 );
+      background-color: map.get($color-neutral, 200 );
+    }
   }
-  }
+
+     &__form {
+      display: none;
+      flex: 1;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+
+      &-actions {
+        display: flex;
+        gap: 12px
+      }
+    }
+
+    &__input-field {
+      flex: 1;
+      padding: 3px 7px;
+      border: 1px solid $color-accent;
+      border-radius: 8px;
+    }
 }

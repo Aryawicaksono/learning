@@ -1,6 +1,7 @@
 import React from "react";
 
 export class StatWidget extends React.Component{
+
   render(){
     const modifier = `stat-widget stat-widget--${this.props.mod}`;
 
