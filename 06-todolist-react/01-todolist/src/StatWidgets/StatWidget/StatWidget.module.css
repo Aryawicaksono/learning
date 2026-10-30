@@ -1,0 +1,26 @@
+.statWidget {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 184px;
+  height: 96px;
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.value {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.0;
+}

@@ -1,0 +1,41 @@
+.todoIsland {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 86px;
+  width: 598px;
+  background-color: var(--color-neutral-50);
+  border: 2px solid #fff;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 18px 18px 10px;
+} 
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-neutral-900);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  padding: 0 8px 8px;
+}
+
+.panelHeader {
+  padding: 12px;
+  border-bottom: 1px solid var(--color-neutral-100);
+}
+
+.panelBody {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: max-content;
+  padding: 12px;
+}

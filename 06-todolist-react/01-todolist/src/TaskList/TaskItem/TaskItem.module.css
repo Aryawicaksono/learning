@@ -1,0 +1,95 @@
+.taskItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px;
+  border: 1px solid var(--color-neutral-100);
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.taskItem:hover .actions {
+  opacity: 1;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.checkbox {
+  height: 19px;
+  width: 19px;
+  border: 1px solid var(--color-neutral-300);
+  border-radius: 6px;
+}
+
+.checked {
+  background: url('./src/assets/img/icon-check.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  border-color: #0088FF;
+}
+
+.label {
+  font-size: 16px;
+  line-height: 1.0;
+  color: var(--color-neutral-900);
+}
+
+.form {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.input {
+  flex: 1;
+  padding: 3px 7px;
+  border: 1px solid #0088FF;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 1.0;
+  color: var(--color-neutral-900);
+}
+
+.formActions {
+  display: flex;
+  gap: 12px;
+}
+
+.formAction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.formAction:hover {
+  background-color: var(--color-neutral-200);
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  opacity: 0;
+}
+
+.action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.action:hover {
+  background-color: var(--color-neutral-200);
+}

@@ -1,0 +1,38 @@
+.formInput {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 18px;
+}
+
+.inputField {
+  display: flex;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.input {
+  flex: 1;
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--color-neutral-900);
+}
+
+.input::placeholder {
+  color: var(--color-neutral-400);
+}
+
+.btn {
+  display: flex;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--color-neutral-900);
+  box-shadow: 0 2px 6px rgba(16, 24, 40, 0.06);
+  color: #fff;
+}
+
+.btnLabel {
+  font-size: 16px;
+}

@@ -1,0 +1,20 @@
+.segmentedControl {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px;
+  border-radius: 8px;
+  background-color: var(--color-neutral-50);
+}
+
+.segment {
+  padding: 5px 14px;
+  border-radius: 6px;
+  font-size: 16px;
+  color: var(--color-neutral-400);
+}
+
+.selectedSegment {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgb(145 145 145 / 0.25);
+  color: var(--color-neutral-900);
+}

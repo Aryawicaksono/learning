@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+img {
+  display: block;
+  width: fit-content;
+  height: auto;
+}
+
+button {
+  all: unset;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  cursor: pointer;
+}
+
+input {
+  all: unset;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
