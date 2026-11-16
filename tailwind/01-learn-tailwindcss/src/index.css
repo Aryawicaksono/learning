@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Oswald", sans-serif;
+  --color-white: #ffffff;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @apply antialiased;
+}
+
+body {
+  @apply w-full bg-amber-100 font-sans leading-[1.4] font-medium;
+}

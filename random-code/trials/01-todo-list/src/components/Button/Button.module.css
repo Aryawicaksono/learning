@@ -1,0 +1,15 @@
+.button {
+  padding: 6px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(16, 28, 40, 0.06);
+}
+
+.disabled {
+  background-color: var(--color-neutral-100);
+  cursor: not-allowed;
+}
+
+.enabled {
+  background-color: var(--color-neutral-900);
+  cursor: pointer;
+}

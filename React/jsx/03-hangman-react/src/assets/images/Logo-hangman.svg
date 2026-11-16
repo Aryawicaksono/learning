@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <!-- Background -->
+  <rect width="500" height="500" fill="#ffffff" />
+
+  <!-- Centered Logo Group -->
+  <g stroke="#000000" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Base Line -->
+    <path stroke-width="16" d="M 125 430 L 325 430" />
+
+    <!-- Main Gallows Frame -->
+    <path stroke-width="16" d="M 185 430 L 185 70 L 370 70 L 370 140" />
+
+    <!-- Support Diagonal Brace -->
+    <path stroke-width="14" d="M 185 130 L 245 70" />
+
+    <!-- Hangman Figure -->
+    <!-- Head -->
+    <circle cx="370" cy="185" r="45" stroke-width="14" />
+
+    <!-- Body -->
+    <path stroke-width="14" d="M 370 230 L 370 310" />
+
+    <!-- Arms -->
+    <path stroke-width="14" d="M 310 270 L 370 245 L 430 270" />
+
+    <!-- Legs -->
+    <path stroke-width="14" d="M 320 380 L 370 310 L 420 380" />
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  border: 1px solid var(--color-neutral-100);
+  background-color: #fff;
+}
+
+.header {
+  padding: 12px;
+  border-bottom: 1px solid var(--color-neutral-100);
+}
