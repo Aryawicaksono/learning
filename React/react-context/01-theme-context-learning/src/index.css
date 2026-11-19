@@ -1,0 +1,17 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    -webkit-fonts-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @apply antialiased 
+  }
+
+  body {
+    @apply font-sans text-base font-medium;
+  }
+}
